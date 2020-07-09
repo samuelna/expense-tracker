@@ -24,6 +24,12 @@ module.exports = {
   // module - loading css, images, fonts, and data
   module: {
     rules: [
+      // load react js files
+      {
+        test: /\.js$/,
+        include: path.resolve(__dirname, 'client'),
+        use: ['babel-loader']
+      },
       // load css
       {
         test: /\.css$/,
@@ -51,9 +57,13 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    extensions: [".js", ".jsx", '.css', '.scss']
+  },
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   node: {
     // fix can't resolve 'net' error
