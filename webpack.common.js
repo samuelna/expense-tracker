@@ -5,14 +5,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './server.js',
+  entry: './client/index.js',
   plugins: [
     // clean dist directory before generating bundled files
-    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
+    new CleanWebpackPlugin(),
     // generate index.html file
     new HtmlWebpackPlugin({
       title: 'Expense Tracker',
-      inject: false,
+      inject: true,
       template: require('html-webpack-template'),
       appMountId: 'app',
       mobile: true,
@@ -24,10 +24,10 @@ module.exports = {
   // module - loading css, images, fonts, and data
   module: {
     rules: [
-      // load react js files
+      // load react js and jsx files
       {
-        test: /\.js$/,
-        include: path.resolve(__dirname, 'client'),
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
         use: ['babel-loader']
       },
       // load css
@@ -56,9 +56,6 @@ module.exports = {
         use: ['xml-loder']
       }
     ]
-  },
-  resolve: {
-    extensions: [".js", ".jsx", '.css', '.scss']
   },
   output: {
     filename: 'main.js',

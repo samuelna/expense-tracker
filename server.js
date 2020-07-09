@@ -15,7 +15,6 @@ const logRoute = (req, res, next) => {
 };
 
 app.use(logRoute);
-app.get('/', (req, res) => res.send('hello from homepage') );
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Server error');
