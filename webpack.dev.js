@@ -9,5 +9,8 @@ module.exports = merge(common, {
   devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false })
-  ]
+  ],
+  devServer: {
+    contentBase: './dist',
+  }
 });

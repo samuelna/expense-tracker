@@ -8,7 +8,6 @@ export default class App extends React.Component {
       <div>
         <h1>hello this my react app component</h1>
         <p>wowwww</p>
-        <p>finally</p>
       </div>
     );
   }
