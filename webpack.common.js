@@ -17,8 +17,10 @@ module.exports = {
       appMountId: 'app',
       mobile: true,
       lang: 'en-US',
-      /* link to styles, libs, fonts, etc. i.e., 'https://fonts.googleapis.com/css?family=Roboto' */
-      links: ['https://fonts.googleapis.com/css?family=Roboto']
+      links: [
+        /* link tag in head for styles, libs, fonts, etc */
+        'https://fonts.googleapis.com/css?family=Roboto'
+      ]
     })
   ],
   // module - loading css, images, fonts, and data
@@ -34,6 +36,20 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
+      },
+      // load less
+      {
+        test: /\.less$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { 
+            loader: 'less-loader',
+            options: {
+              lessOptions: { javascriptEnabled: true }
+            }
+          }
+        ]
       },
       // load iamges
       {
