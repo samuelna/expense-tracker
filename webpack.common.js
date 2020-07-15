@@ -13,7 +13,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Expense Tracker',
       inject: true,
-      template: require('html-webpack-template'),
+      template: path.join(__dirname, 'client/index.html'),
       appMountId: 'app',
       mobile: true,
       lang: 'en-US',
