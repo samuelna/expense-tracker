@@ -18,7 +18,7 @@ module.exports = {
       mobile: true,
       lang: 'en-US',
       /* link to styles, libs, fonts, etc. i.e., 'https://fonts.googleapis.com/css?family=Roboto' */
-      links: ['https://fonts.googleapis.com/css?family=Roboto']
+      links: ['https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap']
     })
   ],
   // module - loading css, images, fonts, and data
