@@ -2,11 +2,7 @@
 
 import CssBaseline from '@material-ui/core/CssBaseline'; // global css reset
 import React, { useState } from 'react';
-import {
-  Box,
-  Container
-} from '@material-ui/core';
-import { spacing } from '@material-ui/system';
+import { Container } from '@material-ui/core';
 import BottomNav from './components/BottomNav.jsx';
 import ExpenseList from './components/ExpenseList.jsx';
 import MonthData from './components/MonthData.jsx';
@@ -37,9 +33,7 @@ export default function App() {
       <CssBaseline />
 
       <Container disableGutters={ true } className="body-container" p={ 2 }>
-        <Box p={ 2 }>
-          <MainBody tab={ currentTab } />
-        </Box>
+        <MainBody tab={ currentTab } />
       </Container>
       <BottomNav currentTab={ currentTab } setCurrentTab={ setCurrentTab } />
     </div>
