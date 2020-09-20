@@ -54,7 +54,7 @@ export default function bottomNav(props) {
         className={ classes.root }
         showLabels
       >
-        <BottomNavigationAction label="Data" value="data" icon={ <TrendingDownRounded /> }></BottomNavigationAction>
+        <BottomNavigationAction label="Reports" value="reports" icon={ <TrendingDownRounded /> }></BottomNavigationAction>
         <BottomNavigationAction label={ currentMonth } value="currentMonth" icon={ <BarChartRounded /> }></BottomNavigationAction>
         <BottomNavigationAction label="Expenses" value="expenses" icon={ <ViewListRounded /> }></BottomNavigationAction>
       </BottomNavigation>
