@@ -34,8 +34,8 @@ const monthMap = {
 };
 
 export default function bottomNav(props) {
-  const [value, setValue] = useState(props.currentTab);
   const classes = useStyles();
+  const [value, setValue] = useState(props.currentTab);
   const [currentMonth, setCurrentMonth] = useState(null)
 
   useEffect(() => {
@@ -47,7 +47,10 @@ export default function bottomNav(props) {
     <div>
       <BottomNavigation
         value={value}
-        onChange={ (event, newValue) => setValue(newValue) }
+        onChange={ (event, newValue) => {
+          props.setCurrentTab(newValue)
+          setValue(newValue);
+        }}
         className={ classes.root }
         showLabels
       >
