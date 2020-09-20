@@ -33,8 +33,8 @@ const monthMap = {
   11: 'Dec'
 };
 
-export default function BottomNav(props) {
-  const [value, setValue] = useState('expenses');
+export default function bottomNav(props) {
+  const [value, setValue] = useState(props.currentTab);
   const classes = useStyles();
   const [currentMonth, setCurrentMonth] = useState(null)
 

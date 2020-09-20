@@ -13,7 +13,7 @@ export default function App() {
       <Container disableGutters={ true }>
         {/* TODO: replace with Grid and list of expenses component */}
       </Container>
-      <BottomNav />
+      <BottomNav currentTab="expenses"/>
     </div>
   );
 }
