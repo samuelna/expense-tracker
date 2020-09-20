@@ -48,7 +48,8 @@ export default function bottomNav(props) {
       <BottomNavigation
         value={value}
         onChange={ (event, newValue) => {
-          props.setCurrentTab(newValue)
+          props.setCurrentTab(newValue);
+          props.setSelectedData(null);
           setValue(newValue);
         }}
         className={ classes.root }
