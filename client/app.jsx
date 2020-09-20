@@ -4,6 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'; // global css reset
 import React, { useState } from 'react';
 import { Container } from '@material-ui/core';
 import BottomNav from './components/BottomNav.jsx';
+import './app.scss';
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState('expenses');

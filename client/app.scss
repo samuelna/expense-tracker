@@ -1,0 +1,6 @@
+$bottom-nav-height: 56px;
+
+.body-container {
+  height: calc(100vh - #{$bottom-nav-height});
+  width: 100%;
+}
