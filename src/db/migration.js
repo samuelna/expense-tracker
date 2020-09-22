@@ -9,14 +9,12 @@ const Record = db.define('record', {
     allowNull: false,
     defaultValue: Sequelize.NOW
   },
-  record_type: {
+  recordType: {
     type: Sequelize.ENUM('expense', 'income'),
     allowNull: false,
     defaultValue: 'expense'
   },
-  items: { // only available for psql
-    type: Sequelize.ARRAY(Sequelize.STRING)
-  },
+  items: Sequelize.TEXT,
   category: Sequelize.STRING,
   amount: Sequelize.FLOAT(2),
 });
@@ -28,7 +26,16 @@ const Tag = db.define('tag', {
   }
 });
 
-// create the tables
+// create the tables with seed data
 // may need to use script to run these
-Record.sync();
-Tag.sync();
+Record.sync().then(() => {
+  Record.create({
+    recordType: 'expense',
+    items: 'physical therapy',
+    category: 'health',
+    amount: 50
+  });
+});
+Tag.sync().then(() => {
+  Tag.create({ name: 'lunch' });
+});
