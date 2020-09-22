@@ -10,4 +10,7 @@ const db = process.env.PGDATABASE;
 
 const sequelize = new Sequelize(`postgres://${user}:${password}@${host}:${port}/${db}`);
 
-module.exports = { db: sequelize };
+module.exports = {
+  db: sequelize,
+  Sequelize
+};
