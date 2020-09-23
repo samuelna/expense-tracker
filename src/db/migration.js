@@ -30,7 +30,7 @@ const Tag = db.define('tag', {
 // may need to use script to run these
 Record.sync().then(() => {
   Record.create({
-    recordType: 'expense',
+    type: 'expense',
     items: 'physical therapy',
     category: 'health',
     amount: 50
