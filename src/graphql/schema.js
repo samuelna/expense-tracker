@@ -20,6 +20,13 @@ const schema = buildSchema(`
     EXPENSE
     INCOME
   }
+
+  type Query {
+    records: [Record],
+    record(id: ID!): Record,
+    tags: [Tag],
+    tag(name: String!): Tag,
+  }
 `);
 
 module.exports = schema;
