@@ -22,11 +22,8 @@ const schema = buildSchema(`
   }
 
   type Query {
-    record(id: ID!): Record
     records(category: String): [Record]
-    recordsByCategory(category: String!): [Record]
     tag(name: String!): Tag
-    tags: [Tag]
   }
 `);
 
