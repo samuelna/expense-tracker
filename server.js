@@ -10,6 +10,9 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const config = require('./webpack.dev.js');
 const compiler = webpack(config);
 const app = express();
+const { graphqlHTTP } = require('express-graphql');
+const schema = require('./src/graphql/schema.js');
+const resolvers = require('./src/graphql/resolvers.js');
 
 // Tell express to use the webpack-dev-middleware and use the webpack.config.js
 // configuration file as a base.
@@ -25,11 +28,17 @@ const logRoute = (req, res, next) => {
   next();
 };
 
-app.use(logRoute);
+// app.use(logRoute);
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Server error');
 });
+
+app.use('/graphql', graphqlHTTP({
+  schema,
+  rootValue: resolvers,
+  graphiql: true
+}));
 
 // serve the files on port 3000
 app.listen(PORT, () => console.log('Listening on port:', PORT));
