@@ -9,14 +9,19 @@ const Record = db.define('record', {
     allowNull: false,
     defaultValue: Sequelize.NOW
   },
-  recordType: {
-    type: Sequelize.ENUM('expense', 'income'),
+  type: {
+    type: Sequelize.ENUM('EXPENSE', 'INCOME'),
     allowNull: false,
-    defaultValue: 'expense'
+    defaultValue: 'EXPENSE'
   },
   items: Sequelize.TEXT,
   category: Sequelize.STRING,
   amount: Sequelize.FLOAT(2),
+  shouldInclude: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+    defaultValue: true
+  }
 });
 
 const Tag = db.define('tag', {

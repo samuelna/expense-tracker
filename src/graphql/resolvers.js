@@ -1,30 +1,14 @@
 'use strict';
 
-const records = [
-  {
-    id: 1,
-    type: 'EXPENSE',
-    items: 'physical therapy',
-    category: 'health',
-    amount: 50
-  },
-  {
-    id: 2,
-    type: 'EXPENSE',
-    items: 'uber',
-    category: 'transportation',
-    amount: 6.49
-  }
-];
-
-const tags = [];
+const { db } = require('../db/connection.js');
+const { Record, Tag } = require('../db/model.js');
 
 const resolvers = {
   records: (obj, args, context, info) => {
-    return records;
+    return Record.findAll();
   },
   tags: (obj, args, context, info) => {
-    return tags;
+    return Tag.findAll();
   }
 };
 

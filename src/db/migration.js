@@ -9,10 +9,11 @@ const {
 // may need to use script to run these
 Record.sync().then(() => {
   Record.create({
-    type: 'expense',
+    type: 'EXPENSE',
     items: 'physical therapy',
     category: 'health',
-    amount: 50
+    amount: 50,
+    shouldInclude: true
   });
 });
 Tag.sync().then(() => {
