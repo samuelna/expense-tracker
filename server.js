@@ -40,5 +40,7 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true
 }));
 
+// TODO: implement /expenses or client side graphql apis
+
 // serve the files on port 3000
 app.listen(PORT, () => console.log('Listening on port:', PORT));

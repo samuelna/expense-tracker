@@ -10,29 +10,6 @@ import MonthData from './components/MonthData.jsx';
 import Reports from './components/Reports.jsx';
 import './app.scss';
 
-const dummyData = [
-  ['Health', 'Physical Theraphy', 50],
-  ['Transportation', 'Uber', 6.51],
-  ['Social', 'Lunch w Sojung', 34],
-  ['Personal: Food & Drinks', 'Coffee', 2.75],
-  ['Bill', 'T-mobile', 79.30],
-  ['Health', 'Physical Theraphy', 50],
-  ['Transportation', 'Uber', 6.51],
-  ['Social', 'Lunch w Sojung', 34],
-  ['Personal: Food & Drinks', 'Coffee', 2.75],
-  ['Bill', 'T-mobile', 79.30],
-  ['Health', 'Physical Theraphy', 50],
-  ['Transportation', 'Uber', 6.51],
-  ['Social', 'Lunch w Sojung', 34],
-  ['Personal: Food & Drinks', 'Coffee', 2.75],
-  ['Bill', 'T-mobile', 79.30],
-  ['Health', 'Physical Theraphy', 50],
-  ['Transportation', 'Uber', 6.51],
-  ['Social', 'Lunch w Sojung', 34],
-  ['Personal: Food & Drinks', 'Coffee', 2.75],
-  ['Bill', 'T-mobile', 79.30],
-];
-
 const MainBody = (props) => {
   switch(props.tab) {
     case 'expenses':
@@ -62,7 +39,7 @@ export default function App() {
       <CssBaseline />
 
       <Container disableGutters={ true } className="body-container" p={ 2 }>
-        <MainBody tab={ currentTab } data={ dummyData } selectedData={ selectedData } setSelectedData={ setSelectedData }/>
+        <MainBody tab={ currentTab } selectedData={ selectedData } setSelectedData={ setSelectedData }/>
       </Container>
       <BottomNav currentTab={ currentTab } setCurrentTab={ setCurrentTab } setSelectedData={ setSelectedData }/>
     </div>

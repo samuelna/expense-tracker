@@ -1,6 +1,6 @@
 'use strict';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Grid,
   List,
@@ -20,8 +20,20 @@ const useStyles = makeStyles({
   }
 });
 
+const fetchExpenses = async () => {
+  await fetch('/expenses')
+    .then(res => res.json())
+    .then(data => setExpenses(data.expenses))
+    .catch(err => console.error('Error retrieving expenses'));
+};
+
 export default function ExpenseList(props) {
   const classes = useStyles();
+  const [expenses, setExpenses] = useState([]);
+
+  useEffect(() => {
+    fetchExpenses();
+  });
 
   return (
     <Grid container className={ classes.container }>
