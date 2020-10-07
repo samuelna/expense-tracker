@@ -23,6 +23,7 @@
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "html-webpack-template": "^6.2.0",
+    "relay-compiler-webpack-plugin": "^8.1.0",
     "sass": "^1.26.11",
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
