@@ -6,12 +6,6 @@ require_relative '../config/environment'
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
-### another way to require support files is to use
-# Dir[Rails.root.join("spec/support/**/*.rb")].each { |file| require file }
-###
-require "factory_bot"
-require_relative 'support/factory_bot' # require factory bot support
-require_relative 'support/shoulda_matchers' # require factory bot shoulda matchers
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -26,7 +20,7 @@ require_relative 'support/shoulda_matchers' # require factory bot shoulda matche
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
