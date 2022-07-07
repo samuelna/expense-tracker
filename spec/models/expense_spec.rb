@@ -15,13 +15,13 @@ RSpec.describe Expense do
       before { create(:category, name: "personal") }
 
       it "does not create a new category" do
-        expect { build(:expense, category_names: ["personal"]).save }.not_to change(Category, :count)
+        expect { build(:expense, category_names: "personal").save }.not_to change(Category, :count)
       end
     end
 
     context "when category does not exist" do
       it "creates a new category" do
-        expect { build(:expense, category_names: ["personal"]).save }.to change(Category, :count)
+        expect { build(:expense, category_names: "personal").save }.to change(Category, :count)
       end
     end
 

@@ -1,4 +1,6 @@
 class Expense < ApplicationRecord
+  scope :with_categories, -> { includes(:categories) }
+
   attr_accessor :category_names
 
   has_many :tags
@@ -11,6 +13,12 @@ class Expense < ApplicationRecord
 
   before_save :find_or_create_categories
 
+  def as_json(options = {})
+    super(options.merge(include: :categories)).tap do |expense|
+      expense["categories"] = expense.fetch("categories").map { |c| c.fetch("name") }
+    end
+  end
+
   private
 
   def find_or_create_categories
@@ -20,8 +28,8 @@ class Expense < ApplicationRecord
   end
 
   def format_category_names
-    self.category_names = if category_names.is_a?(Array)
-      category_names.select { |name| name.is_a?(String) }.map(&:strip).map(&:downcase)
+    self.category_names = if category_names.is_a?(String)
+      category_names.split(",").map(&:strip).map(&:downcase)
     else
       ["other"]
     end
