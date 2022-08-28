@@ -24,11 +24,5 @@ RSpec.describe Expense do
         expect { build(:expense, category_names: "personal").save }.to change(Category, :count)
       end
     end
-
-    context "when category_names is invalid" do
-      it "does not create an expense" do
-        expect { build(:expense, category_names: "personal").save }.to change(Expense, :count)
-      end
-    end
   end
 end
